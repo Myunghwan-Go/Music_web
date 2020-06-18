@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>It's time's music_move</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'music/default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'music/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'music/post.css' %}">
+</head>
+<body>
+{% block nav %}
+
+{% endblock %}
+
+     <div class="nav">
+        <div class="nav-area">
+            <div class="nav-left">
+                <a href="{% url 'music:SiteMain' %}" style="margin: 0% 200% 0% -200%">
+                    <img  class="logo" src="{% static 'music/img/logo.png' %}" style="width: 96px; height: auto;" alt="logo">
+                </a>
+            </div>
+            <div class="nav-right">
+                <ul>
+
+                   <li><a href="{% url 'music:user_guide' %}">사용 설명</a></li>
+                    <li><a href="{% url 'music:post_list' %}">공유 게시판</a></li>
+                </ul>
+            </div>
+
+        </div>
+             <div class="nav-bar"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "music/base.html" %}
+
+{% block nav %}
+    <section>
+        <div class="post-wrap">
+        </div>
+
+        <form class="post-write" method="POST" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+
+
+            <div class="post-write-button">
+                <input class="button-right" id="button-write" type="submit" value="작성"/>
+                <input class="button-right" id="button-cancle" type="submit" value="취소"/>
+            </div>
+        </form>
+
+
+    </section>
+
+{% endblock %}

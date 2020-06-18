@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>It's time's music_move 홈페이지</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'music/default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/home.css' %}">
+
+
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-area">
+            <div class="nav-left">
+                <a href="" style="margin: 0% 200% 0% -200%">
+                    <img src="{% static 'music/img/logo.png' %}" style="width: 96px; height: auto; position: -ms-device-fixed" alt="logo">
+                </a>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="{% url 'music:user_guide' %}">사용 설명</a></li>
+                    <li><a href="{% url 'music:post_list' %}">공유 게시판</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-bar"></div>
+    
+    
+    <main class="main">
+        <div class="main__info"style="margin: 40% 0% 0% 30%">
+            <hgriup class="main__titles">
+                <br><br><br><br>
+                <h6 class="main__pre-title"style="margin: 0% 0% 0% 30%">뮤직 플레이 리스트 저장 및 변환 웹페이지입니다.</h6>
+                <h2 class="main__title">Music Site</h2>
+                <h5 class="main__subtitle"style="margin: 0% 0% 0% 35%">잇츠타임팀의 웹페이지를 보고 계십니다.</h5>
+            </hgriup>
+        </div>
+
+    <div class="get-information" style="margin: 35% 0% 0% 75%">
+        <div class="get-1" style="background-color: transparent;">
+         <div class="get-all" style="position: relative; width: 200%; background-color: transparent;">
+             <ul class="get-url">
+                 <form action="mdgget/" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <input type="text" name="id" size=35 class="frm_input required" size="35" maxLength="35" placeholder="사이트 아이디 입력"><br>
+                    <input type="password" name="password" size=35 class="frm_input required" size="35" maxLength="35" placeholder="사이트 비밀번호 입력"><br>
+                    <label><input type="radio" name="site" value="melon"> Melon</label>
+                    <label><input type="radio" name="site" value="genie"> Genie</label>
+                    <label><input type="radio" name="site" value="bugs"> Bugs</label>
+                    <label><input type="radio" name="site" value="flo"> FLO</label>
+                    <label><input type="radio" name="site" value="vibe"> VIBE</label>
+                    <input type="submit" value="  플레이 리스트 추출하기  " class="btn_submit" style="padding: 10px; height: 40px; margin: 2% 0% 0% 45%;">
+                </form>
+                        <form method="get" enctype="multipart/form-data">
+                            <button
+                                    class="btn-terms"
+                                    style="padding: 10px;
+                                            height: 40px;
+                                            width: 40%;
+                                            margin: 2% 0% 0% 56%;
+                                            background-color: #4b545e;
+                                            color: white;
+                                            border: none;"
+                                    onclick="window.open('agreement/','이용약관','width=500,height=500,location=no,status=no,scrollbars=yes');">
+                                이용약관
+                            </button>
+                        </form>
+            </ul><br>
+
+             <ul class="get-csv">
+                 <form action="mdgup/" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <input type="text" name="id" size=35 class="frm_input required" size="35" maxLength="35" placeholder="사이트 아이디 입력"><br>
+                    <input type="password" name="password" size=35 class="frm_input required" size="35" maxLength="35" placeholder="사이트 비밀번호 입력"><br>
+                    <input type="file" name="file" size=5 class="frm_input required" size="20" maxLength="20" placeholder="CSV파일 업로드"style="margin: 0% 0% 0% 13%;"><br>
+                    <label><input type="radio" name="site" value="melon"> Melon</label>
+                    <label><input type="radio" name="site" value="genie"> Genie</label>
+                    <label><input type="radio" name="site" value="bugs"> Bugs</label>
+                    <label><input type="radio" name="site" value="flo"> FLO</label>
+                    <label><input type="radio" name="site" value="vibe"> VIBE</label>
+                    <input type="submit" value="  플레이 리스트 올리기  " class="btn_submit" style="padding: 10px; height: 40px; margin: 2% 0% 0% 50%;"><br><br>
+                 </form>
+             </ul>
+              <ul class="recommend">
+                <form action="re_result/" method="post" enctype="multipart/form-data" style="margin: 2% 0% 0% 40%;">
+                    {%csrf_token%}
+                    <input type="text" name="re_genre" size=5 class="frm_input required" size="5" maxLength="5" placeholder="장르입력">
+                    <input type="submit" value=" 추천받기" class="btn_submit" style="padding: 10px; height: 40px;"><br>
+                </form>
+              </ul>
+            </div> 
+        </div>
+    </div> 
+
+    </main>
+
+    </body>
+    </html>

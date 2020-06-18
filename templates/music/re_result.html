@@ -1,0 +1,34 @@
+{% extends "music/base.html" %}
+
+{% block nav %}
+    <section>
+
+  <table border = '1' class ="table">
+    <thead>
+      <tr>
+        <th>추천곡 리스트</th>
+          {% for result in recmds %}
+      </tr>
+    </thead>
+    <tbody>
+       <tr>
+            <td>{{ result }}</td>
+        </tr>
+       {% endfor %}
+     </p>
+    </tbody>
+
+  </table>
+          <div
+         class="button-right"
+         style="
+            margin-left: 8%;
+            width: 8%;
+"
+      >
+
+  <a href="{% url 'music:SiteMain' %}">메인으로</a>
+          </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "music/base.html" %}
+
+{% block nav %}
+    <section>
+        <div class="post-wrap">
+        </div>
+        <div class="post" id="post-title">
+
+            {{ object.post_title }}
+
+            <span id="post-date"> {{ object.post_date }}</span>
+        </div>
+
+
+        <div class="post" id="post-content">
+            {{ object.post_contents|linebreaks }}
+        </div>
+
+        {% if post.post_file %}
+            <div class="post">
+
+                <div class="col-12 text-right">
+                    <span>첨부파일 :&nbsp;</span>
+                    <a href="{% url 'music:post_download' pk=post.pk %}">{{ post.post_filename|truncatechars:25 }}</a>
+                </div>
+
+            </div>
+        {% endif %}
+
+
+
+
+
+        <div class="post">
+            {% if object.get_previous %}
+                <a href="{{ object.get_previous.get_absolute_url }}"
+                   title="이전 글">&larr; 이전글 : {{ object.get_previous }}</a>
+            {% endif %}
+
+            {% if object.get_next %}
+                | <a href="{{ object.get_next.get_absolute_url }}" title="다음 글">{{ object.get_next }} &rarr;</a>
+            {% endif %}
+        </div>
+
+
+        <div class="button-right"><a href="{% url 'music:post_list' %}">목록</a></div>
+        <div class="button-left"><a href="{% url 'music:post_update' pk=post.pk %}">수정</a></div>
+        <div class="button-left"><a href="{% url 'music:post_delete' pk=post.pk %}">삭제</a></div>
+
+
+<div style="width:90%; height: 100px; margin: 3% 0 0 2%; border-bottom: 1px solid #58666e; "></div>
+
+
+        <div class="comment-wrap">
+            <form action="{% url 'music:comment_write' pk=post.pk %}" method="POST">
+                {% csrf_token %}
+                <input id="comment-id" type="char" name="writer" placeholder="name"/>
+
+                <input id="comment-add" type="submit" value="댓글작성"/>
+                <br><textarea id="comment-content" type="text" name="content"
+                              placeholder="write your comments"></textarea>
+
+            </form>
+
+        </div>
+
+
+
+
+
+        {% for comment in post.comments.all %}
+            <div class="comment">
+
+                <div class="comment-id" id="commented-id">
+                    {{ comment.com_writer }}
+                    <span id="commented-date">{{ comment.com_date }}</span>
+                </div>
+
+              <div class="commented-content">{{ comment.com_contents }}</div>
+            </div>
+        {% empty %}
+            <div class="comment commented-content">No comments here yet</div>
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

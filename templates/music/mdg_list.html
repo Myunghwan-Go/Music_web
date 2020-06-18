@@ -1,0 +1,60 @@
+{% extends "music/base.html" %}
+
+{% block nav %}
+    <section>
+
+      <div class="board">
+            성공적으로 변환되었습니다. 변환된 곡들의 리스트입니다.
+        </div>
+
+  <table border = '1' class ="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>노래</th>
+        <th>가수</th>
+        <th>앨범</th>
+        {% for mdg in mdgs|slice:":1" %}
+        {% if mdg.site_code == 'M' %}
+        <th>장르</th>
+        {% endif %}
+        {% endfor %}
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for mdg in mdgs %}
+       <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{mdg.song}}</td>
+          <td>{{mdg.artist}}</td>
+          <td>{{mdg.album}}</td>
+           {% if mdg.site_code == 'M' %}
+          <td>{{mdg.genre}}</td>
+           {% endif %}
+        </tr>
+      {% endfor %}
+
+     </p>
+     <br>
+    </tbody>
+
+  </table>
+      <div
+         class="button-right"
+         style="
+            margin-left: 8%;
+            width: 8%;
+"
+      >
+
+                <a href="{% url 'music:mdg_delete' %}">메인으로</a>
+        </div>
+
+
+
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "music/base.html" %}
+
+{% block nav %}
+    <section>
+
+      <div class="board">
+            누락된 곡들의 목록을 보고 계십니다.
+        </div>
+  <table border = '1' class ="table">
+    <thead>
+      <tr>
+        <th>누락된 곡들</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in notfounds %}
+       <tr>
+           {% if result %}
+            <td>{{result}}</td>
+           {% endif %}
+        </tr>
+      {% endfor %}
+     </p>
+    </tbody>
+
+  </table>
+          <div
+         class="button-right"
+         style="
+            margin-left: 8%;
+            width: 8%;
+"
+      >
+
+  <a href="{% url 'music:SiteMain' %}">메인으로</a>
+          </div>
+    </section>
+
+{% endblock %}
