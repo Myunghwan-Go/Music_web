@@ -38,14 +38,14 @@
             {% endif %}
 
             {% if object.get_next %}
-                | <a href="{{ object.get_next.get_absolute_url }}" title="다음 글">{{ object.get_next }} &rarr;</a>
+                | <a href="{{ object.get_next.get_absolute_url }}" title="다음 글">{{ object.get_next }}: 다음글 &rarr;</a>
             {% endif %}
         </div>
 
 
-        <div class="button-right"><a href="{% url 'music:post_list' %}">목록</a></div>
+        <div class="button-right"><a href="{% url 'music:post_delete' pk=post.pk %}">삭제</a></div>
         <div class="button-left"><a href="{% url 'music:post_update' pk=post.pk %}">수정</a></div>
-        <div class="button-left"><a href="{% url 'music:post_delete' pk=post.pk %}">삭제</a></div>
+        <div class="button-left"><a href="{% url 'music:post_list' %}">목록</a></div>
 
 
 <div style="width:90%; height: 100px; margin: 3% 0 0 2%; border-bottom: 1px solid #58666e; "></div>

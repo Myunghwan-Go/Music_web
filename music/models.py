@@ -56,7 +56,7 @@ class Post(models.Model):
     password = models.IntegerField()
     post_date = models.DateTimeField(auto_now_add=True)
     post_title = models.CharField(max_length=45)
-    post_contents = models.TextField(blank=True, help_text='Post Contents')
+    post_contents = models.TextField(blank=True)
     post_like = models.IntegerField(default=0)
     post_hit = models.IntegerField(default=0)
     post_file = models.FileField(upload_to=get_file_path, null=True, blank=True, verbose_name='파일')

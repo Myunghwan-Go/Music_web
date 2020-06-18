@@ -14,7 +14,6 @@ class CreatePostForm(forms.ModelForm):
 
             'class': 'form-control',
             'placeholder': '장르선택',
-
         })
 
     class Meta:
@@ -26,7 +25,7 @@ class CreatePostForm(forms.ModelForm):
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}),
             # 'table_num': forms.TextInput(attrs={'class': 'form-control'}),
             'post_contents' : forms.Textarea(attrs={'class': 'form-control', 'placeholder': '내용을 입력해주세요.'}),
-            'post_file' : forms.FileInput(attrs={'class': 'form-control'}),
+            'post_file' : forms.FileInput(attrs={'class': 'form-control', 'size': '20'}),
 
         }
         labels = {

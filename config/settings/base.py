@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('config/settings/secret.json', 'r') as f:
+with open("config/settings/secret.json", 'r') as f:
     secret = json.loads(f.read())
 # with 함수는 자동으로 파일을 닫아준다
 

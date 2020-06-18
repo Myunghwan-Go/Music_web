@@ -7,12 +7,17 @@
 
         <form class="post-write" method="POST" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
-            {{ form.as_p }}
+            &nbsp;&emsp;&emsp;태그 {{form.table_num}}<br>
+            &emsp;&emsp;작성자 :{{form.writer}}
+            &emsp;&emsp;비밀번호 :{{form.password}}
+            {{form.post_title}}
+            {{form.post_contents}}
+            {{form.post_file}}
 
-
-            <div class="post-write-button">
-                <input class="button-right" id="button-write" type="submit" value="작성"/>
+            <div class="post-write-button"  style="margin: 1% 12% 0% 0%">
                 <input class="button-right" id="button-cancle" type="submit" value="취소"/>
+                <input class="button-left" id="button-write" type="submit" value="작성"/>
+
             </div>
         </form>
 
